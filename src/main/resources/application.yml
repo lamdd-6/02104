@@ -1,0 +1,9 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /ttl/api/v1
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://bosoy79918:fyihXZuTADNUFPHK@lamdd.rvqt4.mongodb.net/lamdd?retryWrites=true&w=majority
