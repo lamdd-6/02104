@@ -1,23 +1,21 @@
 package com.java._4.base;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-
 import java.util.List;
 import java.util.Optional;
 
-public abstract class BaseService<T, ID> {
-    protected final MongoRepository<T, ID> repository;
+public abstract class BaseService<T extends BaseEntity, ID, R extends BaseRepository<T, ID>> {
+    protected final BaseRepository<T, ID> repository;
 
-    protected BaseService(MongoRepository<T, ID> repository) {
+    protected BaseService(R repository) {
         this.repository = repository;
     }
 
     public List<T> findAll() {
-        return repository.findAll();
+        return repository.findByDeletedFalse();
     }
 
     public Optional<T> findById(ID id) {
-        return repository.findById(id);
+        return repository.findByIdAndDeletedFalse(id);
     }
 
     public T save(T entity) {
@@ -25,6 +23,10 @@ public abstract class BaseService<T, ID> {
     }
 
     public void deleteById(ID id) {
-        repository.deleteById(id);
+        Optional<T> entityOpt = repository.findById(id);
+        entityOpt.ifPresent(entity -> {
+            entity.setDeleted(true);
+            repository.save(entity);
+        });
     }
 }

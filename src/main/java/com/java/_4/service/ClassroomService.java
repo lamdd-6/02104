@@ -6,7 +6,7 @@ import com.java._4.repository.ClassroomRepo;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClassroomService extends BaseService<Classroom, String> {
+public class ClassroomService extends BaseService<Classroom, String, ClassroomRepo> {
     public ClassroomService(ClassroomRepo repository) {
         super(repository);
     }
