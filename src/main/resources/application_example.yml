@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /ttl/api/v1
+
+spring:
+  data:
+    mongodb:
+      uri:
+
+  messages:
+    basenames: i18n/messages
+    encoding: UTF-8
+
+  devtools:
+    restart:
+      enabled: true
+      exclude: static/**,public/**
+    livereload:
+      enabled: true
