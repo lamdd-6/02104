@@ -6,7 +6,15 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://bosoy79918:fyihXZuTADNUFPHK@lamdd.rvqt4.mongodb.net/lamdd?retryWrites=true&w=majority
+      uri:
+
   messages:
     basenames: i18n/messages
     encoding: UTF-8
+
+  devtools:
+    restart:
+      enabled: true
+      exclude: static/**,public/**
+    livereload:
+      enabled: true
