@@ -7,3 +7,6 @@ spring:
   data:
     mongodb:
       uri: mongodb+srv://bosoy79918:fyihXZuTADNUFPHK@lamdd.rvqt4.mongodb.net/lamdd?retryWrites=true&w=majority
+  messages:
+    basenames: i18n/messages
+    encoding: UTF-8
